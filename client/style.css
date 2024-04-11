@@ -43,8 +43,7 @@ ul {
   padding: 0;
 }
 
-input[type="text"],
-textarea {
+input {
   margin-bottom: 10px;
   padding: 10px;
   font-size: 1rem;

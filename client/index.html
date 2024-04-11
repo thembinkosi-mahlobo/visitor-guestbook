@@ -9,11 +9,14 @@
     <div class="conatiner">
       <h1>Visitor Guestbook Project</h1>
       <form id="gustbookForm">
-        <input name="name" type="text" placeholder="Name" required />
-        <textarea id="mesaage" placeholder="Message" required></textarea>
+        <label for="name">Name</label>
+        <input name="name" type="text" placeholder="Name" id="name" />
+        <label for="message">Message</label>
+        <input name="message" type="text" placeholder="Message" id="message" />
         <button type="submit">Submit</button>
       </form>
       <ul id="entreies"></ul>
+      <div id="guestbookWrapper"></div>
     </div>
   </body>
 </html>
