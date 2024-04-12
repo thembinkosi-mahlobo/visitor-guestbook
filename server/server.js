@@ -33,7 +33,3 @@ app.post("/entries", (request, response) => {
   guestbookEntries.push(newEntry);
   response.status(201).json({ message: "Entry add sccesfully" });
 });
-
-app.listen(8080, function () {
-  console.log(" Server is running on port 8080");
-});
