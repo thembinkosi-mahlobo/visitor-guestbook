@@ -8,11 +8,18 @@
   <body>
     <div class="conatiner">
       <h1>Visitor Guestbook Project</h1>
-      <form id="gustbookForm">
+      <h2>Please leave a message</h2>
+      <h3 id="emjoi">&#x1F64F</h3>
+      <form id="guestbookForm">
         <label for="name">Name</label>
-        <input name="name" type="text" placeholder="Name" id="name" />
-        <label for="message">Message</label>
+        <input name="name" type="text" placeholder="Enter Name" id="name" />
+        <label for="message"> Your message</label>
         <input name="message" type="text" placeholder="Message" id="message" />
+        <textarea
+          name="message"
+          id="content"
+          placeholder=" Write your message"
+        ></textarea>
         <button type="submit">Submit</button>
       </form>
       <ul id="entreies"></ul>

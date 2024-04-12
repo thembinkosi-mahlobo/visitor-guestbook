@@ -1,20 +1,39 @@
-import express from "express";
+import Database from "better-sqlite3";
+import express, { request, response } from "express";
 import cors from "cors";
 
 const app = express();
-
 app.use(express.json());
 app.use(cors());
+const db = newData("database.db");
 
-app.listen(8080, function () {
-  console.log("aaaaaaaaaaaaaaa... 8080");
+app.get("/", function (request, response) {
+  response.json("For this is root route");
 });
 
-const form = document.getElementById("form");
-const guestbookWrapper = document.getElementById("guestbookWrapper");
+app.get("/guestbook", function (request, response) {
+  const guestbook = db.prepare("SELECT* FROM guestbook").all();
+  response.json(guestbook);
+  console.log("message sent");
+});
 
-async function getMessages() {
-  const response = await fetch("");
-  const message = await response.json();
-  console.log(message);
-}
+app.listen(8080, function () {
+  console.log("Server is running on port 8080");
+});
+
+let guestbookEntries = [];
+
+app.get("./entries", (request, response) => {
+  response.json(guestbooEntries);
+});
+
+app.post("/entries", (request, response) => {
+  const { name, message } = request.body;
+  const newEntry = { name, message, timestamp: newDate() };
+  guestbookEntries.push(newEntry);
+  response.status(201).json({ message: "Entry add sccesfully" });
+});
+
+app.listen(8080, function () {
+  console.log(" Server is running on port 8080");
+});

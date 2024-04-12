@@ -38,15 +38,22 @@ button:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
 input {
   margin-bottom: 10px;
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+#guestWrapper {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+}
+h1::before {
+  content: "\01F4D6";
+}
+h2::before {
+  content: "\1F4AC";
 }
