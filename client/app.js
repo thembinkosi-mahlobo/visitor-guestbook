@@ -3,25 +3,6 @@ const nameInput = document.getElementById("name");
 const messageInput = document.getElementById("message");
 const entriesList = document.getElementById("entries");
 
-guestbookForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const name = nameInput.value.trim();
-  const message = messageInput.value.trim();
-
-  if (!name || !message) {
-    alert("Please fill out both name and message fields.");
-    return;
-  }
-
-  const entry = document.createElement("li");
-  entry.innerHTML = `<strong>${name}:</strong> ${message}`;
-  entriesList.appendChild(entry);
-
-  nameInput.value = "";
-  messageInput.value = "";
-});
-
 const form = document.getElementById("form");
 const guestbookWrapper = document.getElementById("guestbookWrapper");
 
@@ -30,6 +11,27 @@ async function getMessages() {
   const message = await response.json();
   console.log(message);
 }
+
+message.forEach(function (newMassage) {
+  const h2 = document.createElement("h2");
+  const p = document.createElement("p");
+
+  h2.textContent = newMassage.name;
+  p.textContent = newMassage.message;
+
+  guestbookWrapper.appendChild(h2);
+  guestbookWrapper.appendChild(p);
+});
+
+getMessages();
+function handleSunmit(event) {
+  event.preventDefault();
+  const data = new FormData(form);
+  const formValues = Oject.forEntries(data);
+  console.log(formValues);
+}
+
+form.addEventListener("submit", handleSubmit);
 
 const emoji = document.querySelector("#emoji");
 emoji.innerText = String.fromCodePoint(0x1f64f);

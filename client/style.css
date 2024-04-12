@@ -51,9 +51,9 @@ input {
   flex-direction: column;
   justify-content: center;
 }
-h1::before {
+h3::before {
   content: "\01F4D6";
 }
-h2::before {
+h4::before {
   content: "\1F4AC";
 }
