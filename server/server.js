@@ -5,7 +5,7 @@ import cors from "cors";
 const app = express();
 app.use(express.json());
 app.use(cors());
-const db = newData("database.db");
+const db = new Database("database.db");
 
 app.get("/", function (request, response) {
   response.json("For this is root route");
