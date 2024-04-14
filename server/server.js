@@ -31,5 +31,5 @@ app.post("/entries", (request, response) => {
   const { name, message } = request.body;
   const newEntry = { name, message, timestamp: newDate() };
   guestbookEntries.push(newEntry);
-  response.status(201).json({ message: "Entries add successfully" });
+  response.status(201).json({ message: "Entry add successfully" });
 });
