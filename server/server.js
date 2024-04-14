@@ -24,12 +24,12 @@ app.listen(8080, function () {
 let guestbookEntries = [];
 
 app.get("./entries", (request, response) => {
-  response.json(guestbooEntries);
+  response.json(guestbookEntries);
 });
 
 app.post("/entries", (request, response) => {
   const { name, message } = request.body;
   const newEntry = { name, message, timestamp: newDate() };
   guestbookEntries.push(newEntry);
-  response.status(201).json({ message: "Entry add sccesfully" });
+  response.status(201).json({ message: "Entries add successfully" });
 });
